@@ -74,8 +74,8 @@ Description:  Subscribe an email to receive the current exchange rate
 - Parameters :
     - email (string)
 - Response:
-   - Status: 
-       - 200 OK
-       - 400 Bad Request: Return if incorrect email format
-       - 409 Conflict: Return if the email is already in the database
-   - Body: Email added: "email" 
+    - Status: 
+         - 200 OK
+         - 400 Bad Request: Return if incorrect email format
+         - 409 Conflict: Return if the email is already in the database
+     - Body: Email added: "email" 

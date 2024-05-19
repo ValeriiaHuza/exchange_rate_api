@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:alpine
+    container_name: postgres
+    ports:
+      - "${DB_HOST_PORT}:5432"
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+  app:
+    container_name: exchange_rate_api
+    image: valeriia/exchange-app
+    build: ./
+    ports:
+      - "${APP_PORT}:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: 5432
+      DB_USER: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+
+volumes:
+  postgres-db:
+

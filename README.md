@@ -46,6 +46,8 @@ Run the following command to build and start your Docker containers:
 docker-compose up --build
 ```
 
+### The app will start running at http://localhost:8080
+
 ## Rest API
 
 #### Get exchange rate
